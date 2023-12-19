@@ -50,9 +50,6 @@ public class EntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity
             return entity.Id;   
         }
     }
-
-
-
     public Guid Update(TEntity entity)
     {
        using(var contex= new TContext())
