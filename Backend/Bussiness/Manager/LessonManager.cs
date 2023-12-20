@@ -27,8 +27,8 @@ public class LessonManager : ILessonService
     public Guid Delete(Lesson lesson)
         => _lessonDal.Delete(lesson);
 
-    public Lesson Get(Expression<Func<Lesson, bool>> filter = null)
-        => _lessonDal.Get(filter);
+    public Lesson Get(string id)
+        => _lessonDal.Get(x => x.Id == Guid.Parse(id));
 
     public IQueryable<Lesson> GetList(Expression<Func<Lesson, bool>> filter = null)
          => _lessonDal.GetList(filter);

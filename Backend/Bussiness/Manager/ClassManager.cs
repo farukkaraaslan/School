@@ -19,8 +19,8 @@ public class ClassManager : IClassService
         _classDal = classDal;
     }
 
-    public Class Get(Expression<Func<Class, bool>> filter = null)
-        => _classDal.Get(filter);
+    public Class Get(string id)
+        => _classDal.Get(x=> x.Id == Guid.Parse(id));
 
     public IQueryable<Class> GetList(Expression<Func<Class, bool>> filter = null)
         =>_classDal.GetList(filter);

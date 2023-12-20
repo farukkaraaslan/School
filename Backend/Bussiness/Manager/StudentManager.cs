@@ -19,8 +19,8 @@ public class StudentManager : IStudentService
         _studentDal = studentDal;
     }
 
-    public Student Get(Expression<Func<Student, bool>> filter = null)
-           =>_studentDal.Get(filter);
+    public Student Get(string id)
+           =>_studentDal.Get(x => x.Id == Guid.Parse(id));
 
     public IQueryable<Student> GetList(Expression<Func<Student, bool>> filter = null)
         =>_studentDal.GetList(filter);

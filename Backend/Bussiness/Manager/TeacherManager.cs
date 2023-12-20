@@ -19,8 +19,8 @@ public class TeacherManager : ITeacherService
         _teacherDal = teacherDal;
     }
 
-    public Teacher Get(Expression<Func<Teacher, bool>> filter = null)
-        => _teacherDal.Get(filter); 
+    public Teacher Get(string id)
+        => _teacherDal.Get(x => x.Id == Guid.Parse(id)); 
 
     public IQueryable<Teacher> GetList(Expression<Func<Teacher, bool>> filter = null)
         => _teacherDal.GetList(filter);

@@ -10,7 +10,7 @@ namespace Bussiness.Interface;
 
 public interface ILessonService
 {
-    Lesson Get(Expression<Func<Lesson, bool>> filter = null);
+    Lesson Get(string id);
     IQueryable<Lesson> GetList(Expression<Func<Lesson, bool>> filter = null);
     Guid Add(Lesson lesson);
     Guid Delete(Lesson lesson);

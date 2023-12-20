@@ -10,7 +10,7 @@ namespace Bussiness.Interface;
 
 public interface IStudentService
 {
-    Student Get(Expression<Func<Student, bool>> filter = null);
+    Student Get(string id);
     IQueryable<Student> GetList(Expression<Func<Student,bool>> filter= null);
     Guid Add(Student student);
     Guid Delete(Student student);
