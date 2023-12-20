@@ -11,8 +11,9 @@ public class Configuration
     static public string ConnectionString {
         get{
             ConfigurationManager configurationManger = new();
-            configurationManger.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../WebAPI"));
-            configurationManger.AddJsonFile("application.json");
+            configurationManger.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../WebAPI"));
+            configurationManger.AddJsonFile("appsettings.json")
+                ;
             return configurationManger.GetConnectionString("PostgreSQL");
         }
     }

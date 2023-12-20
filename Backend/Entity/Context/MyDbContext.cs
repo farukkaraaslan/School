@@ -10,9 +10,9 @@ namespace Entity.Context;
 
 public class MyDbContext : DbContext
 {
-    public MyDbContext() : base() { }
+public MyDbContext() : base() { }
 
-    public MyDbContext(DbContextOptions<DbContext> options): base(options) { }
+    public MyDbContext(DbContextOptions<MyDbContext> options): base(options) { }
 
     public DbSet<Class> Classes { get; set; }
     public DbSet<Student> Students { get; set; }  
