@@ -23,13 +23,13 @@ public class BasicAutheticatonHandler : AuthenticationHandler<BasicAuthenticatio
             return AuthenticateResult.NoResult();
         }
 
-        byte[] incommingCrdential = Convert.FromBase64String(headerValue.Parameter);
+        byte[] incommingCredential = Convert.FromBase64String(headerValue.Parameter);
 
-        string userCredentil = Encoding.UTF8.GetString(incommingCrdential);
-        string userName = userCredentil.Split(':')[0];
-        string password = userCredentil.Split(':')[1];
+        string userCredential = Encoding.UTF8.GetString(incommingCredential);
+        string userName = userCredential.Split(':')[0];
+        string password = userCredential.Split(':')[1];
 
-        if (userName != "Faruk" && password != "1234")
+        if ((userName != "Faruk") || (password != "1234"))
         {
             return AuthenticateResult.Fail("Wrong username and password");
         }

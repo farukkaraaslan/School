@@ -19,7 +19,7 @@ public class ClassesController : ControllerBase
 
     [HttpGet]
     [Route("getList")]
-    [Authorize]
+
     public IQueryable<Class> GetList()
     {
         return _classService.GetList();
@@ -34,6 +34,8 @@ public class ClassesController : ControllerBase
 
     [HttpPost]
     [Route("add")]
+
+    [Authorize]
     public string Add(Class clas)
     {
         return _classService.Add(clas).ToString();
