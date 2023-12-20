@@ -18,7 +18,7 @@ public class StudentController : ControllerBase
     }
 
 
-    [HttpPut]
+    [HttpPost]
     [Route("Add")]
     public string Add(Student student)
     {

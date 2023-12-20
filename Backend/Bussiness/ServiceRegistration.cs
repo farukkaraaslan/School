@@ -19,6 +19,10 @@ public static class ServiceRegistration
         services.AddSingleton<IStudentService,StudentManager>();
         services.AddSingleton<IStudentDal,StudentDal>();
 
-       
+        services.AddSingleton<IClassService, ClassManager>();
+        services.AddSingleton<IClassDal, ClassDal>();
+
+
+
     }
 }
