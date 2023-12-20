@@ -10,7 +10,8 @@ public class Lesson: BaseEntity
 {
     public string Name { get; set; }
     public string Code { get; set; }
-    public List<Teacher> Teachers { get; set; }
+    public ICollection<Teacher> Teachers { get; set; }
+    public ICollection<Student> Students { get; set; }
     public Lesson()
     {
         

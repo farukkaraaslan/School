@@ -14,7 +14,7 @@ public class Student : BaseEntity
     public string Email { get; set; }
     public string PhoneNumber { get; set; }
     public BigInteger StudentNumber { get; set; }
-    public List<Lesson> Lessons { get; set; }
+    public ICollection<Lesson> Lessons { get; set; }
     public Student()
     {
         
