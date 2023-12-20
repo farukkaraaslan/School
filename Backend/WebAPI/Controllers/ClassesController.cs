@@ -1,5 +1,6 @@
 ﻿using Bussiness.Interface;
 using Entity.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +19,7 @@ public class ClassesController : ControllerBase
 
     [HttpGet]
     [Route("getList")]
+    [Authorize]
     public IQueryable<Class> GetList()
     {
         return _classService.GetList();
