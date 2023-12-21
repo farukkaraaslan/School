@@ -41,8 +41,8 @@ public class AccountsController : ControllerBase
                 audience: "client.jsga.edu.tr",
                 claims: claims,
                 signingCredentials: cryptoCredential,
-                notBefore: DateTime.Now,
-                expires: DateTime.Now.AddMinutes(20)
+                notBefore: DateTime.UtcNow,
+                expires: DateTime.UtcNow.AddMinutes(20)
                 );
 
             var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();

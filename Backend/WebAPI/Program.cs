@@ -56,12 +56,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidAudience="client.jsga.edu.tr",
             IssuerSigningKey=new SymmetricSecurityKey(Encoding.UTF8.GetBytes("nemutlutürkümdiyenenemutlutürkümdiyene")),
             ValidateIssuer=true,
-            ValidateAudience=false,
-            ValidateIssuerSigningKey=true
+            ValidateAudience=true,
+            ValidateIssuerSigningKey=true,
+            ValidateLifetime=true,
         };
     });
 
-builder.Services.AddCors();
+
 
 var app = builder.Build();
 
@@ -74,7 +75,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors(builder=> builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
 
 app.UseAuthorization();
 app.UseAuthentication();
