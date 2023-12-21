@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Numerics;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -7,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Entity.Migrations
 {
     /// <inheritdoc />
-    public partial class initDb : Migration
+    public partial class sutdent_add_password : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -52,10 +51,11 @@ namespace Entity.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     FirstName = table.Column<string>(type: "text", nullable: false),
+                    Password = table.Column<string>(type: "text", nullable: false),
                     LastName = table.Column<string>(type: "text", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: false),
                     PhoneNumber = table.Column<string>(type: "text", nullable: false),
-                    StudentNumber = table.Column<BigInteger>(type: "numeric", nullable: false),
+                    StudentNumber = table.Column<int>(type: "integer", nullable: false),
                     CreatedDateTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedDateTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     CreatorId = table.Column<Guid>(type: "uuid", nullable: false),

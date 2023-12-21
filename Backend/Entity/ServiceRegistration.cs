@@ -12,10 +12,10 @@ namespace Entity;
 
 public static class ServiceRegistration
 {
-    public static void AddEntityService(this IServiceCollection services)
+    public static void AddEntityServices(this IServiceCollection services)
     {
-        services.AddDbContext<MyDbContext>(options=>
-            options.UseNpgsql(Configuration.ConnectionString)
-        );
+        services.AddDbContext<MyDbContext>(options =>
+            options.UseNpgsql(Configuration.ConnectionString));
+
     }
 }

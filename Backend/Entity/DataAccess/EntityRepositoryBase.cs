@@ -30,32 +30,32 @@ public class EntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity
                 : context.Set<TEntity>().Where(filter).AsQueryable();
         }
     }
+
     public Guid Add(TEntity entity)
     {
-       using (var contex= new TContext()) 
-        { 
-            contex.Add<TEntity>(entity);
-            contex.SaveChanges();
+        using (var context = new TContext())
+        {
+            context.Add<TEntity>(entity);
+            context.SaveChanges();
             return entity.Id;
-            
+        }
+    }
+    public Guid Update(TEntity entity)
+    {
+        using (var context = new TContext())
+        {
+            context.Update<TEntity>(entity);
+            context.SaveChanges();
+            return entity.Id;
         }
     }
 
     public Guid Delete(TEntity entity)
     {
-        using(var contex= new TContext())
+        using (var context = new TContext())
         {
-            contex.Remove<TEntity>(entity);
-            contex.SaveChanges();
-            return entity.Id;   
-        }
-    }
-    public Guid Update(TEntity entity)
-    {
-       using(var contex= new TContext())
-        {
-            contex.Update<TEntity>(entity); 
-            contex.SaveChanges();
+            context.Remove<TEntity>(entity);
+            context.SaveChanges();
             return entity.Id;
         }
     }

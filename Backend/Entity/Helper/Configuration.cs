@@ -8,13 +8,16 @@ namespace Entity.Helper;
 
 public class Configuration
 {
-    static public string ConnectionString {
-        get{
-            ConfigurationManager configurationManger = new();
-            configurationManger.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../WebAPI"));
-            configurationManger.AddJsonFile("appsettings.json")
-                ;
-            return configurationManger.GetConnectionString("PostgreSQL");
+    static public string ConnectionString
+    {
+        get
+        {
+            ConfigurationManager configurationManager = new();
+            configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../WebApi"));
+            configurationManager.AddJsonFile("appsettings.json");
+
+            return configurationManager.GetConnectionString("PostgreSQL");
         }
     }
 }
+

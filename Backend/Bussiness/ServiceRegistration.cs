@@ -16,13 +16,7 @@ public static class ServiceRegistration
 {
     public static void AddBusinessService(this IServiceCollection services)
     {
-        services.AddSingleton<IStudentService,StudentManager>();
-        services.AddSingleton<IStudentDal,StudentDal>();
-
-        services.AddSingleton<IClassService, ClassManager>();
-        services.AddSingleton<IClassDal, ClassDal>();
-
-
-
+        services.AddScoped<IStudentService,StudentManager>();
+        services.AddScoped<IClassService, ClassManager>();
     }
 }

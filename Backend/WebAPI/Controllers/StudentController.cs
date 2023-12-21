@@ -1,5 +1,6 @@
 ﻿using Bussiness.Interface;
 using Entity.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -20,8 +21,16 @@ public class StudentController : ControllerBase
 
     [HttpPost]
     [Route("Add")]
+    [Authorize]
     public string Add(Student student)
     {
         return _studentService.Add(student).ToString();
+    }
+
+    [HttpGet]
+    [Route("GetList")]
+    public IQueryable<Student> Getlist()
+    {
+        return _studentService.GetList();
     }
 }

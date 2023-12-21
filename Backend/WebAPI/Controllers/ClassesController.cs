@@ -27,6 +27,7 @@ public class ClassesController : ControllerBase
 
     [HttpGet]
     [Route("get")]
+
     public Class Get(string id)
     {
         return _classService.Get(id);
@@ -35,7 +36,6 @@ public class ClassesController : ControllerBase
     [HttpPost]
     [Route("add")]
 
-    [Authorize]
     public string Add(Class clas)
     {
         return _classService.Add(clas).ToString();
@@ -50,6 +50,8 @@ public class ClassesController : ControllerBase
 
     [HttpDelete]
     [Route("delete")]
+
+    [Authorize(Roles = "Admin")]
     public string Update(string id)
     {
         return _classService.Delete(new Entity.Models.Class() { Id= Guid.Parse( id)}).ToString();

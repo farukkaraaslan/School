@@ -1,13 +1,16 @@
 using Bussiness;
+using Dal;
 using Entity;
 using WebAPI.Security;
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
+builder.Services.AddEntityServices();
 builder.Services.AddBusinessService();
+builder.Services.AddDalServices();
+
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

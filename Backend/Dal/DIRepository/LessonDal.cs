@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Dal.DIRepository;
 
-public class LessonDal :EntityRepositoryBase<Lesson,MyDbContext>, ILessonDal
+public class LessonDal : EntityRepositoryBase<Lesson, MyDbContext>, ILessonDal
 {
+
 }

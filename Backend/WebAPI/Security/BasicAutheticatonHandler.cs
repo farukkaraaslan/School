@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using Entity.Context;
+using Entity.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Net.Http.Headers;
 using System.Security.Claims;
@@ -11,6 +14,7 @@ namespace WebAPI.Security;
 public class BasicAutheticatonHandler : AuthenticationHandler<BasicAuthenticationOption>
 {
     private readonly UserService _userService;
+private readonly MyDbContext    _dbContext;
     public BasicAutheticatonHandler(
         IOptionsMonitor<BasicAuthenticationOption> options,
         ILoggerFactory loggerFactory,
@@ -19,6 +23,7 @@ public class BasicAutheticatonHandler : AuthenticationHandler<BasicAuthenticatio
     { 
     
         _userService = new UserService();
+        _dbContext = new MyDbContext();
     }
 
     protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
@@ -33,19 +38,18 @@ public class BasicAutheticatonHandler : AuthenticationHandler<BasicAuthenticatio
         string userCredential = Encoding.UTF8.GetString(incommingCredential);
         string userName = userCredential.Split(':')[0];
         string password = userCredential.Split(':')[1];
+        Student student = _dbContext.Students.SingleOrDefault(s=>s.FirstName == userName  && s.Password==password);
 
-        User user = _userService.ValidateUser(userName, password);
-        if (user == null)
+        if (student == null)
         {
             return AuthenticateResult.Fail("Wrong username and password");
         }
 
         Claim[] claims = new Claim[]
         {
-            new Claim(ClaimTypes.Name, user.Name),
-            new Claim(ClaimTypes.Email, user.Email),
-            new Claim(ClaimTypes.MobilePhone, user.Phone),
-            new Claim(ClaimTypes.Role, user.Role),
+            new Claim(ClaimTypes.Name, student.FirstName),
+            new Claim(ClaimTypes.Email, student.Email),
+    
         };
 
         ClaimsIdentity identity = new ClaimsIdentity(claims, Scheme.Name);
