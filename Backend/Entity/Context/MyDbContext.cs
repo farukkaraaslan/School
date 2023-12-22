@@ -1,5 +1,6 @@
 ﻿using Entity.Helper;
 using Entity.Models;
+using Entity.Models.Logs;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ public class MyDbContext : DbContext
     public DbSet<Lesson> Lessons { get; set; }
     public DbSet<Student> Students { get; set; }
     public DbSet<Teacher> Teachers { get; set; }
+    public DbSet<Log> Logs { get; set; }
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
