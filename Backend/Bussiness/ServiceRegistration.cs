@@ -18,5 +18,6 @@ public static class ServiceRegistration
     {
         services.AddScoped<IStudentService,StudentManager>();
         services.AddScoped<IClassService, ClassManager>();
+        services.AddScoped<ILogService, LogManager>();
     }
 }

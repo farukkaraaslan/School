@@ -14,6 +14,7 @@ builder.Services.AddBusinessService();
 builder.Services.AddDalServices();
 
 builder.Services.AddControllers();
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(option =>

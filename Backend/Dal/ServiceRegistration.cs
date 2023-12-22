@@ -15,5 +15,6 @@ public static class ServiceRegistration
     {
         services.AddScoped<IStudentDal, StudentDal>();
         services.AddScoped<IClassDal, ClassDal>();
+        services.AddScoped<ILogDal, LogDal>();
     }
 }

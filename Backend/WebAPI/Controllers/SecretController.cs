@@ -6,7 +6,7 @@ namespace WebAPI.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class SecretController : ControllerBase
+public class SecretController : BaseController
 {
     private readonly IHostEnvironment _hostEnvironment;
 

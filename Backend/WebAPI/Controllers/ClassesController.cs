@@ -8,7 +8,7 @@ namespace WebAPI.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class ClassesController : ControllerBase
+public class ClassesController : BaseController
 {
     private readonly IClassService _classService;
 
@@ -38,6 +38,7 @@ public class ClassesController : ControllerBase
 
     public string Add(Class clas)
     {
+        logHelper.CreateLog("Class/Add", $"Class Name :{clas.Name}");
         return _classService.Add(clas).ToString();
     }
 
